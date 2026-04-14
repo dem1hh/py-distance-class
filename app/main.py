@@ -1,11 +1,11 @@
 class Distance:
     # Write your code here
-    def __init__(self, km: int):
+    def __init__(self, km: int) -> None:
         self.km = km
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Distance: {self.km} kilometers."
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
     def __add__(self, otherKm):
@@ -30,7 +30,7 @@ class Distance:
         return NotImplemented
 
     def __rmul__(self, otherKm):
-        return self.mul(otherKm)
+        return self.__mul__(otherKm)
 
     def __truediv__(self, otherKm):
         if isinstance(otherKm, (int, float)):
@@ -40,7 +40,7 @@ class Distance:
 
     def __lt__(self, otherKm):
         if isinstance(otherKm, Distance):
-            return self.km < otherKm
+            return self.km < otherKm.km
 
         if isinstance(otherKm, (int, float)):
             return self.km < otherKm
@@ -48,7 +48,7 @@ class Distance:
 
     def __gt__(self, otherKm):
         if isinstance(otherKm, Distance):
-            return self.km > otherKm
+            return self.km > otherKm.km
 
         if isinstance(otherKm, (int, float)):
             return self.km > otherKm
@@ -56,7 +56,7 @@ class Distance:
 
     def __eq__(self, otherKm):
         if isinstance(otherKm, Distance):
-            return self.km == otherKm
+            return self.km == otherKm.km
 
         if isinstance(otherKm, (int, float)):
             return self.km == otherKm
@@ -64,14 +64,14 @@ class Distance:
 
     def __le__(self, otherKm):
         if isinstance(otherKm, Distance):
-            return self.km <= otherKm
+            return self.km <= otherKm.km
         if isinstance(otherKm, (int, float)):
             return self.km <= otherKm
         return NotImplemented
 
     def __ge__(self, otherKm):
         if isinstance(otherKm, Distance):
-            return self.km >= otherKm
+            return self.km >= otherKm.km
         if isinstance(otherKm, (int, float)):
             return self.km >= otherKm
         return NotImplemented
