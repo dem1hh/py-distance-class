@@ -12,7 +12,7 @@ class Distance:
     def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
-    def get_km(self, value):
+    def get_km(self, value: Distance | int | float) -> int | float:
         if isinstance(value, Distance):
             return value.km
         if isinstance(value, (int, float)):
